@@ -15,7 +15,7 @@ def quick():
     foodDict = api.call("5000", "fast food")
     binfo = parse.ratingParser(foodDict, 3)[1]
     print(binfo)
-    return render_template('quick_response.html', name = binfo[0][0], image = binfo[0][1])
+    return render_template('quick_response.html', name = binfo[0][0], image = binfo[0][2])
     #return render_template('quick_response.html')
 
     
