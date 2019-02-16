@@ -42,7 +42,7 @@ def call(radius: str, keyword: str) -> dict:
     location = get_result(BASE_URL_LOCATION)
     locstr = str(location['latitude']) + ','+ str(location['longitude'])
 
-    furl = build_url_place(locstr, '2000', 'mexican')
+    furl = build_url_place(locstr, radius, keyword)
 
     final = get_result(furl)
     return final
