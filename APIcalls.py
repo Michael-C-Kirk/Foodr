@@ -38,6 +38,15 @@ def get_result(url: str) -> dict:
         if response != None:
             response.close()
 
+def call(radius: str, keyword: str) -> dict:
+    location = get_result(BASE_URL_LOCATION)
+    locstr = str(location['latitude']) + ','+ str(location['longitude'])
+
+    furl = build_url_place(locstr, '2000', 'mexican')
+
+    final = get_result(furl)
+    return final
+
 
 if __name__ == '__main__':
     
