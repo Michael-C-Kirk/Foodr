@@ -11,7 +11,12 @@ KEY_WORD_LIST = ["sushi", "spaghetti", "taco", "ramen", "sandwich", "icecream", 
 CLF = None
 app = Flask(__name__)
 details = dict()
-        
+URL = []
+
+@app.route('/upbutton')
+def upbutton():
+    return redirect(URL[-1])
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -23,8 +28,8 @@ def surprise():
         return render_template('surprise.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
-    url = ru.getRestarauntURL(REST_ID)
-    return render_template('surprise.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = url)
+    URL.append(ru.getRestarauntURL(REST_ID))
+    return render_template('surprise.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
     
 @app.route('/caffeine')
 def coffee():
@@ -35,8 +40,8 @@ def coffee():
         return render_template('caffeine.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
-    url = ru.getRestarauntURL(REST_ID)
-    return render_template('caffeine.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = url)
+    URL.append(ru.getRestarauntURL(REST_ID))
+    return render_template('caffeine.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
     
 @app.route('/quick')
 def quick():
@@ -47,8 +52,8 @@ def quick():
         return render_template('quick_response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
-    url = ru.getRestarauntURL(REST_ID)
-    return render_template('quick_response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = url)
+    URL.append(ru.getRestarauntURL(REST_ID))
+    return render_template('quick_response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
     #return render_template('quick_response.html')
 
     
@@ -68,8 +73,8 @@ def choose():
         return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
-    url = ru.getRestarauntURL(REST_ID)
-    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = url)
+    URL.append(ru.getRestarauntURL(REST_ID))
+    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
 
 @app.route('/details_given', methods = ['POST'])
 def detailed():
@@ -100,8 +105,8 @@ def detailed():
         return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
-    url = ru.getRestarauntURL(REST_ID)
-    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = url)
+    URL.append(ru.getRestarauntURL(REST_ID))
+    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
 
 if __name__ == '__main__':
     CLF = dt.train_initial_data()
