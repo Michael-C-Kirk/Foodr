@@ -1,7 +1,6 @@
 #decision tree implementation
 
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
@@ -17,7 +16,9 @@ def train_initial_data()->"a trained classifier based on trained data":
     clf_entropy.fit(X_train, y_train) #Fit & train to the training set
     return clf_entropy
 
-
+#retrain data and output clf
+def retrain_data(text_file_name:str, clf:"classifier object")->"clf object retrained":
+    pass
 
 def prediction(clf: "classifier object", data: {'Time': int, 'Mood':int, 'Age':int}):
     '''Takes in a classifier and dict of data and outputs a number that represents
