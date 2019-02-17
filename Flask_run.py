@@ -16,7 +16,15 @@ URL = []
 
 @app.route('/upbutton')
 def upbutton():
+    if(URL == []):
+        return redirect("/")
     du.update_data_set("dataset3.txt", details, details["Result"])
+    return redirect(URL[-1])
+
+@app.route('/upbutton1')
+def upbutton1():
+    if(URL == []):
+        return redirect("/")
     return redirect(URL[-1])
 
 @app.route('/')
