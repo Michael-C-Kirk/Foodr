@@ -17,7 +17,7 @@ def index():
     return render_template('index.html')
 @app.route('/surprise')
 def surprise():
-    foodDict = api.call("7000", KEY_WORD_LIST[randrange(0, len(KEY_WORD_LIST))])
+    foodDict = api.call("14000", KEY_WORD_LIST[randrange(0, len(KEY_WORD_LIST))])
     binfo = dcd.ratingParser(foodDict, 4)[1]
     if len(binfo) == 0:
         return render_template('surprise.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
@@ -29,7 +29,7 @@ def surprise():
 @app.route('/caffeine')
 def coffee():
     print("IN COFFEE!!!")
-    foodDict = api.call("5000", "cafe and coffee")
+    foodDict = api.call("10000", "cafe and coffee")
     binfo = dcd.ratingParser(foodDict, 3.5)[1]
     if len(binfo) == 0:
         return render_template('caffeine.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
@@ -41,7 +41,7 @@ def coffee():
 @app.route('/quick')
 def quick():
     print("IN QUICK!!!")
-    foodDict = api.call("5000", "fast food")
+    foodDict = api.call("10000", "fast food")
     binfo = dcd.ratingParser(foodDict, 3.5)[1]
     if len(binfo) == 0:
         return render_template('quick_response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
@@ -62,7 +62,7 @@ def choose():
     subcatnum = randrange(0, len(l))
     subcat = l[subcatnum]
     print(subcat)
-    foodDict = api.call("5000", subcat)
+    foodDict = api.call("10000", subcat)
     binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
     if len(binfo) == 0:
         return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
@@ -93,8 +93,9 @@ def detailed():
     subcatnum = randrange(0, len(l))
     subcat = l[subcatnum]
     print(subcat)
-    foodDict = api.call("5000", subcat)
+    foodDict = api.call("10000", subcat)
     binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
+    print(binfo)
     if len(binfo) == 0:
         return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
     placeNum = randrange(0, len(binfo))
