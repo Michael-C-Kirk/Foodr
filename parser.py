@@ -4,7 +4,6 @@ import urllib.request
 
 GOOGLE_API_KEY = 'AIzaSyCSZkLStjQk7d1TPs7X7uwGj-yLRyjL2zA'
 BASE_URL_PHOTOS = 'https://maps.googleapis.com/maps/api/place/photo?'
-
 def buildPhotoURL(photoReference: str, maxHeight: int):
 	'''builds image url'''
 	BASE_URL_PHOTO = BASE_URL_PHOTOS

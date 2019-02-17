@@ -13,9 +13,10 @@ def index():
 def quick():
     print("IN QUICK!!!")
     foodDict = api.call("5000", "fast food")
-    binfo = parse.ratingParser(foodDict, 4)[1]
+    binfo = parse.ratingParser(foodDict, 3.5)[1]
     print(binfo)
-    return render_template('quick_response.html', name = binfo[5][0], image = binfo[5][2], rating = binfo[5][1])
+    placeNum = rand(len(binfo))
+    return render_template('quick_response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1])
     #return render_template('quick_response.html')
 
     
