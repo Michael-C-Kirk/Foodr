@@ -35,6 +35,7 @@ def ratingParser(infoDict: dict, rating: int):
 
 	parsedInfo = sorted(parsedInfo, key = lambda pI: pI['rating'], reverse = True)
 	basicInfo = sorted(basicInfo, key = lambda bI: bI[1], reverse = True)
+
 	return parsedInfo, basicInfo
 
 def priceParser(infoDict: dict, price: int):
@@ -43,11 +44,28 @@ def priceParser(infoDict: dict, price: int):
 	rating: Int representing minimum restaraunt rating you prefer
 	return: list of price sorted restaraunt info (dictionary containing all restaraunt data), list of restataunt basic info (name & image)
 	'''
+	parsedInfo = []
+	'''Contains parsed restaraunts name, rating and image url'''
+	basicInfo = []
 
+	for place in infoDict['results']:
+		try:
+			if (place['price_level'] <= price):
+				parsedInfo.append(place)
+				photoURL = buildPhotoURL(place['photos'][0]['photo_reference'], 500)
+				basicInfo.append((place['name'], place['rating'], photoURL))
+		except:
+			pass
+			#("No price")
+
+	parsedInfo = sorted(parsedInfo, key = lambda pI: pI['rating'], reverse = True)
+	basicInfo = sorted(basicInfo, key = lambda bI: bI[1], reverse = True)
+
+	return parsedInfo, basicInfo
 
 if __name__ == '__main__':
 
 	''' returns dictionary of api info param1 = radius, param2 = keyword '''
-	foodDict = api.call(10000, "pizza")
-	pInfo, bInfo = ratingParser(foodDict, 3)
+	foodDict = api.call(10000, "restaurant")
+	pInfo, bInfo = priceParser(foodDict, 1)
 	print (bInfo)
