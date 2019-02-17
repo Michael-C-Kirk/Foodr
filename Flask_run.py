@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect, render_template
 import APIcalls as api
 import parser as parse
-from rrandom import randrange
+from random import randrange
 
 
 app = Flask(__name__)
