@@ -9,12 +9,28 @@ details = dict()
 @app.route('/')
 def index():
     return render_template('index.html')
+@app.route('/surprise')
+def surprise():
+    print("IN COFFEE!!!")
+    foodDict = api.call("7000", "sushi")
+    binfo = dcd.ratingParser(foodDict, 3.5)[1]
+    print(binfo)
+    placeNum = randrange(0, len(binfo))
+    return render_template('surprise.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1])
+    
+@app.route('/caffeine')
+def coffee():
+    print("IN COFFEE!!!")
+    foodDict = api.call("5000", "cafe and coffee")
+    binfo = dcd.ratingParser(foodDict, 3.5)[1]
+    print(binfo)
+    placeNum = randrange(0, len(binfo))
+    return render_template('caffeine.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1])
 
 @app.route('/quick')
 def quick():
     print("IN QUICK!!!")
     foodDict = api.call("5000", "fast food")
-    dcd.wow()
     binfo = dcd.ratingParser(foodDict, 3.5)[1]
     print(binfo)
     placeNum = randrange(0, len(binfo))
