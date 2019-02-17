@@ -61,6 +61,11 @@ def quick():
 def choose():
     print(details)
     cat_num = int(dt.prediction(CLF, details))
+    x = randrange(10)
+    if (x < 2):
+        cat_num -= 1
+        if (cat_num == 0):
+            cat_num = 2
     cat = c.symbol_to_categories[cat_num]
     l = c.categories[cat]
     print(l)
