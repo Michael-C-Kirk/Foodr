@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, render_template
 import APIcalls as api
-import parser as parse
+import decode as dcd
 from random import randrange
 
 
@@ -14,7 +14,8 @@ def index():
 def quick():
     print("IN QUICK!!!")
     foodDict = api.call("5000", "fast food")
-    binfo = parse.ratingParser(foodDict, 3.5)[1]
+    dcd.wow()
+    binfo = dcd.ratingParser(foodDict, 3.5)[1]
     print(binfo)
     placeNum = randrange(0, len(binfo))
     return render_template('quick_response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1])
