@@ -1,14 +1,17 @@
 from flask import Flask, request, redirect, render_template
 import APIcalls as api
 import decode as dcd
+import decision_tree as dt
+import categories as c
 from random import randrange
 
 KEY_WORD_LIST = ["sushi", "spaghetti", "taco", "ramen", "sandwich", "icecream", "kbbq", "fish", "soup", "pancake"]
-
+clf = None
 app = Flask(__name__)
 details = dict()
 @app.route('/')
 def index():
+    clt = dt.train_initial_data()
     return render_template('index.html')
 @app.route('/surprise')
 def surprise():
@@ -39,10 +42,19 @@ def quick():
 def choose():
     return 'results go here'
 
-@app.route('/details_given', methods = ['GET'])
+@app.route('/details_given', methods = ['POST'])
 def detailed():
+    if request.form['action'] == 'happy':
+        print("GOT HAPPY")
+        details['mood'] = 1
+    elif request.form['action'] == 'sad':
+        print("GOT SAD")
+        details['mood'] = 0
+    else:
+        print("ERROR")
+    
     details['price'] = request.form['price']
-    details['foodtype'] = request.form['cuisine']
+    #details['foodtype'] = request.form['cuisine']
 
     print(details)
     #return details
