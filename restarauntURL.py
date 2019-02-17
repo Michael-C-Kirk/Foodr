@@ -12,7 +12,6 @@ def getRestarauntURL(restarauntID: str):
 		restarauntDict: string representing a single restaraunt place_id
 		return: string representing restaraunt url in google
 	'''
-	print(restarauntID)
 	BASE_URL_REVIEW = BASE_URL_REVIEWS
 	query_parameters = [
 		('placeid', restarauntID), ('fields', 'name,url'), ('key', GOOGLE_API_KEY)]
@@ -20,7 +19,6 @@ def getRestarauntURL(restarauntID: str):
 	placeDetailsURL = BASE_URL_REVIEW + urllib.parse.urlencode(query_parameters)
 
 	placeDetailsDict = api.get_result(placeDetailsURL)
-	print(placeDetailsDict)
 	return placeDetailsDict['result']['url'] 
 
 if __name__ == '__main__':

@@ -43,7 +43,6 @@ def call(radius: str, keyword: str) -> dict:
     locstr = str(location['latitude']) + ','+ str(location['longitude'])
 
     furl = build_url_place(locstr, radius, keyword)
-    print(furl)
 
     final = get_result(furl)
     return final

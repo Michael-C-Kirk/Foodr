@@ -43,7 +43,6 @@ def surprise():
     
 @app.route('/caffeine')
 def coffee():
-    print("IN COFFEE!!!")
     foodDict = api.call("10000", "cafe and coffee")
     binfo = dcd.ratingParser(foodDict, 3.5)[1]
     if len(binfo) == 0:
@@ -55,7 +54,6 @@ def coffee():
     
 @app.route('/quick')
 def quick():
-    print("IN QUICK!!!")
     foodDict = api.call("10000", "fast food")
     binfo = dcd.ratingParser(foodDict, 3.5)[1]
     if len(binfo) == 0:
@@ -69,7 +67,6 @@ def quick():
     
 @app.route('/choose')
 def choose():
-    print(details)
     cat_num = int(dt.prediction(CLF, details))
     x = randrange(10)
     if (x < 2):
@@ -79,10 +76,8 @@ def choose():
     details["Result"] = cat_num
     cat = c.symbol_to_categories[cat_num]
     l = c.categories[cat]
-    print(l)
     subcatnum = randrange(0, len(l))
     subcat = l[subcatnum]
-    print(subcat)
     foodDict = api.call("10000", subcat)
     binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
     if len(binfo) == 0:
@@ -95,29 +90,23 @@ def choose():
 @app.route('/details_given', methods = ['POST'])
 def detailed():
     if request.form['action'] == 'happy':
-        print("GOT HAPPY")
         details['Mood'] = 1
     elif request.form['action'] == 'sad':
-        print("GOT SAD")
         details['Mood'] = 0
     else:
-        print("ERROR")
+        print("ERROR MOOD WAS NOT RIGHT")
         
     details['Price'] = int(request.form['price'])
     details['Time'] = time_parse()
     details['Age'] = age_paser(age_generator())
-    print(details)
     cat_num = int(dt.prediction(CLF, details))
     details["Result"] = cat_num
     cat = c.symbol_to_categories[cat_num]
     l = c.categories[cat]
-    print(l)
     subcatnum = randrange(0, len(l))
     subcat = l[subcatnum]
-    print(subcat)
     foodDict = api.call("10000", subcat)
     binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
-    print(binfo)
     if len(binfo) == 0:
         return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
     placeNum = randrange(0, len(binfo))
