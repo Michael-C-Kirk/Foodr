@@ -26,11 +26,11 @@ def ratingParser(infoDict: dict, rating: int):
 
 	for place in infoDict['results']:
 		try:
-			if (place['rating'] >= rating):
+			if (place['rating'] >= rating and place['opening_hours']['open_now'] == True):
 				parsedInfo.append(place)
 				photoURL = buildPhotoURL(place['photos'][0]['photo_reference'], 500)
-				rURL = restURL.getRestarauntURL(place)
-				basicInfo.append((place['name'], place['rating'], photoURL, rURL))
+				#rURL = restURL.getRestarauntURL(place)
+				basicInfo.append((place['name'], place['rating'], photoURL, place['place_id']))
 		except:
 			pass
 			#("No rating")
@@ -52,11 +52,11 @@ def priceParser(infoDict: dict, price: int):
 
 	for place in infoDict['results']:
 		try:
-			if (place['price_level'] <= price):
+			if (place['price_level'] <= price and place['opening_hours']['open_now'] == True):
 				parsedInfo.append(place)
 				photoURL = buildPhotoURL(place['photos'][0]['photo_reference'], 500)
-				rURL = restURL.getRestarauntURL(place)
-				basicInfo.append((place['name'], place['rating'], photoURL, rURL))
+				#rURL = restURL.getRestarauntURL(place)
+				basicInfo.append((place['name'], place['rating'], photoURL, place["place_id"]))
 		except:
 			pass
 			#("No price")
