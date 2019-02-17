@@ -14,7 +14,7 @@ def buildPhotoURL(photoReference: str, maxHeight: int):
 
 	return BASE_URL_PHOTO + urllib.parse.urlencode(query_parameters)
 
-def ratingParser(infoDict: dict, rating: int):
+def ratingParser(infoDict: dict, rating: int, price = 5):
 	'''
 	infoDict: Dictionary of restaurant information
 	rating: Int representing minimum restaraunt rating you prefer
@@ -26,7 +26,7 @@ def ratingParser(infoDict: dict, rating: int):
 
 	for place in infoDict['results']:
 		try:
-			if (place['rating'] >= rating and place['opening_hours']['open_now'] == True):
+			if (place['rating'] >= rating and place['price_level'] <= price and place['opening_hours']['open_now'] == True):
 				parsedInfo.append(place)
 				photoURL = buildPhotoURL(place['photos'][0]['photo_reference'], 500)
 				#rURL = restURL.getRestarauntURL(place)
@@ -65,6 +65,7 @@ def priceParser(infoDict: dict, price: int):
 	basicInfo = sorted(basicInfo, key = lambda bI: bI[1], reverse = True)
 
 	return parsedInfo, basicInfo
+
 
 if __name__ == '__main__':
 
