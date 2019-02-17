@@ -12,6 +12,8 @@
     <title>FOODR</title>
 
     <!-- CSS  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -142,13 +144,13 @@
             <form action="/details_given" method="get">
                 <p>
                   <label>
-                    <input name="price" type="radio" value="1" />
+                    <input name="price" type="radio" id="1" value="1" />
                     <span class = "green-text text-darken-3">$</span>
                   </label>
                 </p>
                 <p>
                   <label>
-                    <input name="price" type="radio" value="2" />
+                    <input name="price" type="radio" id="2"value="2"/>
                     <span class = "green-text text-darken-3">$$</span>
                     
                   </label>
@@ -158,13 +160,13 @@
           <div class="col center s12 m6 l3">
                   <p>
                     <label>
-                      <input name="price" type="radio" value="3" />
+                      <input name="price" type="radio" id="3" value="3"/>
                       <span class = "green-text text-darken-3">$$$</span>
                     </label>
                   </p>
                   <p>
                     <label>
-                      <input name="price" type="radio" value="4" />
+                      <input name="price" type="radio" id="4" value="4"/>
                       <span class = "green-text text-darken-3">$$$$</span>
                     </label>
                   </p>
@@ -175,29 +177,14 @@
         </div>
       </div>
     </div>
-
-   
-    <div class="container">
-        <div class="section">
-          <div class="row">
-              <div class="input-field col s12">
-                  <select multiple name = "cuisine">
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">American</option>
-                    <option value="2">Asian</option>
-                    <option value="3">Seafood</option>
-                    <option value="4">Indian</option>
-                    <option value="5">Middle Eastern</option>
-                    <option value="6">Mexican</option>
-                  </select>
-                </div>
-          </div>
           <div class="row">
             <div class="input-field col s12">
-             <center> <button class="btn waves-effect waves-light" type="submit" value="Send" name="action">Submit
-                <i class="material-icons right">send</i>
+             <center> <button class="btn waves-effect waves-light" type="submit" value="happy" name="action">
+                <i class="far fa-grin-beam" size="7x"></i>
               </button> </center>
-            
+            <center> <button class="btn waves-effect waves-light" type="submit" value="sad" name="action">
+                <i class="far fa-frown-open"></i>
+              </button> </center>
           </div>
           </div>
           </form>
