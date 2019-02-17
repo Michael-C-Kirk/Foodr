@@ -2,6 +2,7 @@ from flask import Flask, request, redirect, render_template
 import APIcalls as api
 import decode as dcd
 import decision_tree as dt
+import data_update as du
 import categories as c
 from random import randrange
 from helper import *
@@ -15,6 +16,7 @@ URL = []
 
 @app.route('/upbutton')
 def upbutton():
+    du.update_data_set("dataset3.txt", details, details["Result"])
     return redirect(URL[-1])
 
 @app.route('/')
@@ -66,6 +68,7 @@ def choose():
         cat_num -= 1
         if (cat_num == 0):
             cat_num = 2
+    details["Result"] = cat_num
     cat = c.symbol_to_categories[cat_num]
     l = c.categories[cat]
     print(l)
@@ -97,6 +100,7 @@ def detailed():
     details['Age'] = age_paser(age_generator())
     print(details)
     cat_num = int(dt.prediction(CLF, details))
+    details["Result"] = cat_num
     cat = c.symbol_to_categories[cat_num]
     l = c.categories[cat]
     print(l)
@@ -114,5 +118,5 @@ def detailed():
     return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
 
 if __name__ == '__main__':
-    CLF = dt.train_initial_data()
+    CLF = dt.train_initial_data("dataset3.txt")
     app.run()

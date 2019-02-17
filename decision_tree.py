@@ -9,8 +9,8 @@ from sklearn import tree
 
 
 
-def train_initial_data()->"a trained classifier based on trained data":
-    data = np.genfromtxt("dataset2_random.txt", delimiter=",")
+def train_initial_data(text_file_name:str)->"a trained classifier based on trained data":
+    data = np.genfromtxt(text_file_name, delimiter=",")
     Y = data[:, -1] #target value is last column
     X = data[:, 0:-1] #features are the other columns
     #X_train, X_test, y_train, y_test = train_test_split(X,Y, test_size=0.3, random_state=100)
