@@ -1,12 +1,11 @@
 import APIcalls as api
 import urllib.parse
 import urllib.request
+import restarauntURL as restURL
 
 GOOGLE_API_KEY = 'AIzaSyCSZkLStjQk7d1TPs7X7uwGj-yLRyjL2zA'
 BASE_URL_PHOTOS = 'https://maps.googleapis.com/maps/api/place/photo?'
-def wow():
-	print('wow')
-	
+
 def buildPhotoURL(photoReference: str, maxHeight: int):
 	'''builds image url'''
 	BASE_URL_PHOTO = BASE_URL_PHOTOS
@@ -30,7 +29,8 @@ def ratingParser(infoDict: dict, rating: int):
 			if (place['rating'] >= rating):
 				parsedInfo.append(place)
 				photoURL = buildPhotoURL(place['photos'][0]['photo_reference'], 500)
-				basicInfo.append((place['name'], place['rating'], photoURL))
+				rURL = restURL.getRestarauntURL(place)
+				basicInfo.append((place['name'], place['rating'], photoURL, rURL))
 		except:
 			pass
 			#("No rating")
@@ -55,7 +55,8 @@ def priceParser(infoDict: dict, price: int):
 			if (place['price_level'] <= price):
 				parsedInfo.append(place)
 				photoURL = buildPhotoURL(place['photos'][0]['photo_reference'], 500)
-				basicInfo.append((place['name'], place['rating'], photoURL))
+				rURL = restURL.getRestarauntURL(place)
+				basicInfo.append((place['name'], place['rating'], photoURL, rURL))
 		except:
 			pass
 			#("No price")
@@ -68,6 +69,6 @@ def priceParser(infoDict: dict, price: int):
 if __name__ == '__main__':
 
 	''' returns dictionary of api info param1 = radius, param2 = keyword '''
-	foodDict = api.call(100000, "restaurant")
-	pInfo, bInfo = priceParser(foodDict, 1)
-	print (pInfo)
+	foodDict = api.call(100000, "fast food")
+	pInfo, bInfo = ratingParser(foodDict, 2)
+	print ("bInfo:", bInfo[3])

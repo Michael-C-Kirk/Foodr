@@ -59,5 +59,5 @@ if __name__ == '__main__':
     print(furl)
 
     final = get_result(furl)
-    print(final)
+    #print(final)
 
