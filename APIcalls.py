@@ -15,7 +15,7 @@ def build_url_place(latlong: str, raduis: str, keyword: str) -> str:
     '''builds search url'''
     BASE_URL_PLACE = BASE_URL_PLACES + '?location=' + latlong +'&'
     query_parameters = [
-        ('radius', raduis), ('type', 'food'), ('keyword',keyword), ('key', GOOGLE_API_KEY)]
+        ('radius', raduis), ('type', 'restaraunt'), ('keyword',keyword), ('key', GOOGLE_API_KEY)]
 
     return BASE_URL_PLACE + urllib.parse.urlencode(query_parameters)
 
@@ -43,6 +43,7 @@ def call(radius: str, keyword: str) -> dict:
     locstr = str(location['latitude']) + ','+ str(location['longitude'])
 
     furl = build_url_place(locstr, radius, keyword)
+    print(furl)
 
     final = get_result(furl)
     return final

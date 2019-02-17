@@ -68,6 +68,6 @@ def priceParser(infoDict: dict, price: int):
 if __name__ == '__main__':
 
 	''' returns dictionary of api info param1 = radius, param2 = keyword '''
-	foodDict = api.call(10000, "restaurant")
+	foodDict = api.call(100000, "restaurant")
 	pInfo, bInfo = priceParser(foodDict, 1)
-	print (bInfo)
+	print (pInfo)
