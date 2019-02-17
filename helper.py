@@ -1,4 +1,5 @@
 import datetime
+from random import randrange
 
 def time_parse() -> int:
     currentDT = datetime.datetime.now()
@@ -18,4 +19,9 @@ def age_paser(age: int) -> int:
     else:
         return 0
 
-
+def age_generator() -> int:
+    randomNum = randrange(1, 11)
+    if randomNum > 7:
+        return 23
+    else:
+        return 16

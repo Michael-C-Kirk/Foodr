@@ -4,25 +4,16 @@ import decode as dcd
 import decision_tree as dt
 import categories as c
 from random import randrange
-from helper import time_parse, age_paser
+from helper import *
 import restarauntURL as ru
 
 KEY_WORD_LIST = ["sushi", "spaghetti", "taco", "ramen", "sandwich", "icecream", "kbbq", "fish", "soup", "pancake"]
-clf = None
+CLF = None
 app = Flask(__name__)
 details = dict()
-
-
-@app.route('/thumpup')
-def upbutton():
-    print("AFTER UP")
-    print(REST_ID)
-    url = ru.getRestarauntURL(REST_ID)
-    return redirect(url)
         
 @app.route('/')
 def index():
-    clt = dt.train_initial_data()
     return render_template('index.html')
 @app.route('/surprise')
 def surprise():
@@ -63,26 +54,54 @@ def quick():
     
 @app.route('/choose')
 def choose():
-    return 'results go here'
+    print(details)
+    cat_num = int(dt.prediction(CLF, details))
+    cat = c.symbol_to_categories[cat_num]
+    l = c.categories[cat]
+    print(l)
+    subcatnum = randrange(0, len(l))
+    subcat = l[subcatnum]
+    print(subcat)
+    foodDict = api.call("5000", subcat)
+    binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
+    if len(binfo) == 0:
+        return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
+    placeNum = randrange(0, len(binfo))
+    REST_ID = binfo[placeNum][3]
+    url = ru.getRestarauntURL(REST_ID)
+    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = url)
 
 @app.route('/details_given', methods = ['POST'])
 def detailed():
     if request.form['action'] == 'happy':
         print("GOT HAPPY")
-        details['mood'] = 1
+        details['Mood'] = 1
     elif request.form['action'] == 'sad':
         print("GOT SAD")
-        details['mood'] = 0
+        details['Mood'] = 0
     else:
         print("ERROR")
-
-    if request.form['price'] == None:
-        print("WHAT?")
-    details['price'] = request.form['price']
-    
+        
+    details['Price'] = request.form['price']
+    details['Time'] = time_parse()
+    details['Age'] = age_paser(age_generator())
     print(details)
-    #return details
-    return redirect('/choose')
+    cat_num = int(dt.prediction(CLF, details))
+    cat = c.symbol_to_categories[cat_num]
+    l = c.categories[cat]
+    print(l)
+    subcatnum = randrange(0, len(l))
+    subcat = l[subcatnum]
+    print(subcat)
+    foodDict = api.call("5000", subcat)
+    binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
+    if len(binfo) == 0:
+        return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
+    placeNum = randrange(0, len(binfo))
+    REST_ID = binfo[placeNum][3]
+    url = ru.getRestarauntURL(REST_ID)
+    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = url)
 
 if __name__ == '__main__':
+    CLF = dt.train_initial_data()
     app.run()

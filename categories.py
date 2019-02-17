@@ -4,13 +4,13 @@ categories = {'american': ['bbq', 'breakfast brunch', 'pancakes', 'burger', 'chi
               'italian': ['italian','pizza', 'pasta'],
               'dessert': ['icecream', 'cheesecake', 'cake', 'creme brulee']}
 
-symbol_to_categories: {1:'american',
+symbol_to_categories = {1:'american',
                        2:'asian',
                        3:'bar',
                        4:'italian',
                        5:'dessert'}
 
-categories_to_symbols: {'american':1,
+categories_to_symbols = {'american':1,
                         'asian':2,
                         'bar':3,
                         'italian':4,
