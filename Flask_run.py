@@ -82,7 +82,7 @@ def detailed():
     else:
         print("ERROR")
         
-    details['Price'] = request.form['price']
+    details['Price'] = int(request.form['price'])
     details['Time'] = time_parse()
     details['Age'] = age_paser(age_generator())
     print(details)

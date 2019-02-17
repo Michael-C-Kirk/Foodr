@@ -1,8 +1,8 @@
 categories = {'american': ['bbq', 'breakfast brunch', 'pancakes', 'burger', 'chicken_wings', 'waffles', 'fish n chips', 'pizza', 'salad', 'sandwiches'],
-              'asian': ['chinese', 'dimsum', 'filipino','hotpot','japanese', 'ramen', 'korean', 'sushi', 'thai'],
+              'asian': ['dimsum','hotpot', 'ramen', 'korean', 'sushi', 'thai'],
               'bar':['bar'],
-              'italian': ['italian','pizza', 'pasta'],
-              'dessert': ['icecream', 'cheesecake', 'cake', 'creme brulee']}
+              'italian': ['pizza', 'pasta'],
+              'dessert': ['icecream', 'cheesecake', 'cake']}
 
 symbol_to_categories = {1:'american',
                        2:'asian',

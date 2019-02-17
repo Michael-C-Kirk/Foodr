@@ -26,7 +26,7 @@ def ratingParser(infoDict: dict, rating: int, price = 5):
 
 	for place in infoDict['results']:
 		try:
-			if (place['rating'] >= rating and place['price_level'] <= price):# and place['opening_hours']['open_now'] == True):
+			if (place['rating'] >= rating and place['price_level'] <= price and place['opening_hours']['open_now'] == True):
 				parsedInfo.append(place)
 				photoURL = buildPhotoURL(place['photos'][0]['photo_reference'], 500)
 				#rURL = restURL.getRestarauntURL(place)
@@ -70,6 +70,4 @@ def priceParser(infoDict: dict, price: int):
 if __name__ == '__main__':
 
 	''' returns dictionary of api info param1 = radius, param2 = keyword '''
-	foodDict = api.call(100000, "fast food")
-	pInfo, bInfo = ratingParser(foodDict, 2)
-	print ("bInfo:", bInfo[3])
+
