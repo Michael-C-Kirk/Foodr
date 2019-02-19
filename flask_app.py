@@ -99,7 +99,6 @@ def detailed():
     details['Price'] = int(request.form['price'])
     details['Time'] = time_parse()
     details['Age'] = age_paser(age_generator())
-    print(details)
     cat_num = int(dt.prediction(CLF, details))
     details["Result"] = cat_num
     cat = c.symbol_to_categories[cat_num]
