@@ -54,7 +54,7 @@ if __name__ == '__main__':
     locstr = str(location['latitude']) + ','+ str(location['longitude'])
     print(locstr)
 
-    furl = build_url_place(locstr, '2000', 'mexican')
+    furl = build_url_place(locstr, '500', 'mexican')
     print(furl)
 
     final = get_result(furl)
