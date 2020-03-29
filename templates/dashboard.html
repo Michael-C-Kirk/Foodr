@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+    $('select').formSelect();
+    });
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Foodr Dashboard</title>
+
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="static/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="static/css/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+  </head>
+  <body>
+    <nav class="blue-grey lighten-3" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo"><img src="static/logo-wo-text.png" height="60" widith="60"></a>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <ul class="sidenav" id="nav-mobile">
+      <li><a href="/dashboard">Dashboard</a></li>
+    </ul>
+
+    
+    <div id="dashboard-banner" class="parallax-container valign-wrapper z-depth-5">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <h1 class="header center white-text light">
+            DASHBOARD
+          </h1>
+          <br />
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="static/dashboard.jpg" alt="brick background" />
+      </div>
+      
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col s6" style="border-right: 1px dotted black;">
+          <h3 class = "center">Machine Learning Option</h3>
+          <div class="row center">
+            <div class="col s12">
+              <div class="card-panel blue-grey lighten-5">
+                <form action="/details_given" method="post">
+                  <div class="container">
+                    <div class="section">
+                      <div class="row">
+                        <h5>Price Range</h5>
+                        <div class="col center s12 m6 l3">
+                        </div>
+                        <div class="col center s12 m6 l3">
+                          
+                          <p>
+                            
+                            <label>
+                              <input name="price" type="radio" id="1" value="1" required/>
+                                <span class = "green-text text-darken-3">$</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input name="price" type="radio" id="2"value="2" checked/>
+                                <span class = "green-text text-darken-3">$$</span>
+                            </label>
+                          </p>
+                          <!-- </p> -->
+                        </div>
+                        <div class="col center s12 m6 l3">
+                          <p>
+                            <label>
+                              <input name="price" type="radio" id="3" value="3"/>
+                                <span class = "green-text text-darken-3">$$$</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input name="price" type="radio" id="4" value="4"/>
+                                <span class = "green-text text-darken-3">$$$$</span>
+                            </label>
+                          </p>
+                            <!-- </p> -->
+                        </div>
+                        <div class="col center s12 m6 l3">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <h5>Mood</h5>
+                    <div class="col s12 m4">
+                    </div>
+                    <div class="input-field col s12 m2">
+                      <center> 
+                        <button class="btn-floating btn-large waves-effect waves-light yellow darken-1 black-text" type="submit" value="happy" name="action">
+                          <i class="far fa-grin-beam"></i>
+                        </button>
+                      </center>
+                    </div>
+                    <div class="input-field col s12 m2">
+                    <center> 
+                      <button class="btn-floating btn-large waves-effect waves-light blue" type="submit" value="sad" name="action">
+                        <i class="far fa-frown-open"></i>
+                      </button> 
+                    </center>
+                    </div>
+                    <div class="col s12 m4">
+                    </div>
+                  </div>
+                
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col s6">
+          <h3 class= "center">Quick Options</h3>
+          <div class="row">
+            <div class="col s12">
+              <div class="card-panel blue-grey lighten-5">
+                <a href="/quick">
+                  <div class="row valign-wrapper">
+                    
+                    <div class="col s2 center">
+                        <i class="small material-icons center orange-text">fastfood</i>
+                    </div>
+                    <div class="col s1"></div>
+                    <div class="col s9">
+                      <h6>
+                      Cheap eats and munchies
+                      </h6>
+                      <p class="light black-text">
+                        For those looking for quick eats
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <a href="/caffeine">
+                  <div class="row valign-wrapper">
+                    <div class="col s2 center">
+                        <i class="small material-icons center brown-text">local_cafe</i>
+                    </div>
+                    <div class="col s1"></div>
+                    <div class="col s9">
+                      <h6>
+                      Cafe's
+                      </h6>
+                      <p class="light black-text">For those that need a caffeine boost and have cafe recommendations</p>
+                    </div>
+                  </div>
+                </a>
+                <a href="/surprise">
+                  <div class="row valign-wrapper">
+                    <div class="col s2 center">
+                        <i class="small material-icons center blue-text">restaurant_menu</i>
+                    </div>
+                    <div class="col s1"></div>
+                    <div class="col s9">
+                      <h6>
+                      Surprise me
+                      </h6>
+                      <p class="light black-text">
+                        For the mood when you want to see what else is out there.
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="static/materialize.js"></script>
+    <script src="static/init.js"></script>
+  </body>
+</html>

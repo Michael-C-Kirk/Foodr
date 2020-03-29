@@ -2,7 +2,7 @@ import json
 import urllib.parse
 import urllib.request
 
-GOOGLE_API_KEY = 'AIzaSyCSZkLStjQk7d1TPs7X7uwGj-yLRyjL2zA'
+GOOGLE_API_KEY = 'AIzaSyAN-1q3LVj4Trfte63emKX_YywhSvB_O9A'
 LOCATION_API_KEY = '610c80ba84b43729198fb6fa18a0216e'
 BASE_URL_PLACES = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'#?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=YOUR_API_KEY'
 BASE_URL_LOCATION = 'http://api.ipstack.com/check?access_key=610c80ba84b43729198fb6fa18a0216e&fields=main'

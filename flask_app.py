@@ -27,6 +27,10 @@ def upbutton1():
         return redirect("/")
     return redirect(URL[-1])
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -35,33 +39,33 @@ def surprise():
     foodDict = api.call("14000", KEY_WORD_LIST[randrange(0, len(KEY_WORD_LIST))])
     binfo = dcd.ratingParser(foodDict, 4)[1]
     if len(binfo) == 0:
-        return render_template('surprise.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
+        return render_template('response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "", thumbsDownGoesTo='/surprise')
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
     URL.append(ru.getRestarauntURL(REST_ID))
-    return render_template('surprise.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
+    return render_template('response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1], thumbsDownGoesTo='/surprise')
     
 @app.route('/caffeine')
 def coffee():
     foodDict = api.call("10000", "cafe and coffee")
     binfo = dcd.ratingParser(foodDict, 3.5)[1]
     if len(binfo) == 0:
-        return render_template('caffeine.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
+        return render_template('response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "", thumbsDownGoesTo='/caffeine')
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
     URL.append(ru.getRestarauntURL(REST_ID))
-    return render_template('caffeine.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
+    return render_template('response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1], thumbsDownGoesTo='/caffeine')
     
 @app.route('/quick')
 def quick():
     foodDict = api.call("10000", "fast food")
     binfo = dcd.ratingParser(foodDict, 3.5)[1]
     if len(binfo) == 0:
-        return render_template('quick_response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
+        return render_template('response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "", thumbsDownGoesTo='/quick')
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
     URL.append(ru.getRestarauntURL(REST_ID))
-    return render_template('quick_response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
+    return render_template('response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1], thumbsDownGoesTo='/quick')
     #return render_template('quick_response.html')
 
     
@@ -81,11 +85,11 @@ def choose():
     foodDict = api.call("10000", subcat)
     binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
     if len(binfo) == 0:
-        return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
+        return render_template('response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "", thumbsDownGoesTo='/choose')
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
     URL.append(ru.getRestarauntURL(REST_ID))
-    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
+    return render_template('response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1], thumbsDownGoesTo='/choose')
 
 @app.route('/details_given', methods = ['POST'])
 def detailed():
@@ -108,12 +112,12 @@ def detailed():
     foodDict = api.call("10000", subcat)
     binfo = dcd.ratingParser(foodDict, 3.8, details['Price'])[1]
     if len(binfo) == 0:
-        return render_template('choice.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "")
+        return render_template('response.html', name = "All locations are closed at the moment", image = "We appologize for the inconvenience", rating = "", thumbsDownGoesTo='/choose')
     placeNum = randrange(0, len(binfo))
     REST_ID = binfo[placeNum][3]
     URL.append(ru.getRestarauntURL(REST_ID))
-    return render_template('choice.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1])
+    return render_template('response.html', name = binfo[placeNum][0], image = binfo[placeNum][2], rating = binfo[placeNum][1], URL = URL[-1], thumbsDownGoesTo='/choose')
 
 if __name__ == '__main__':
     CLF = dt.train_initial_data("dataset3.txt")
-    app.run()
+    app.run(debug=True)

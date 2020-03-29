@@ -30,30 +30,20 @@
     />
   </head>
   <body>
-    <nav class="white" role="navigation">
+    <nav class="blue-grey lighten-3" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="/" class="brand-logo">FOODR</a>        
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
+        <a id="logo-container" href="/" class="brand-logo"><img src="static/logo-wo-text.png" height="60" widith="60"></a>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
       </div>
     </nav>
+    
+    <ul class="sidenav" id="nav-mobile">
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
 
-
-    <div id="index-banner" class="parallax-container">
-      <div class="section">
-        <div class="container">
-          <br /><br />
-          <h1 class="header center grey-text text-lighten-5">
-            <font face="verdana">&nbsp Coffee Fix Suggestions</font>
-          </h1>
-          <br />
-        </div>
-      </div>
-      <div class="parallax">
-        <img src="static/cup.jpg" alt="Oranges" />
-      </div>
-    </div>
 
     <div class = "container">
       <div class = "section">
@@ -74,7 +64,7 @@
         <div class = "row center">
           <div class="col s12 m3"></div>
           <div class="col s12 m1">
-              <a href="/caffeine" value="/caffeine" class="btn-floating btn-large waves-effect waves-light red"><i class="medium material-icons">thumb_down</i></a>
+              <a href={{thumbsDownGoesTo}} value="{{thumbsDownGoesTo}}" class="btn-floating btn-large waves-effect waves-light red"><i class="medium material-icons">thumb_down</i></a>
           </div>
           <div class="col s12 m4">
             

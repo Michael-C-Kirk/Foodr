@@ -2,8 +2,8 @@ import APIcalls as api
 import urllib.parse
 import urllib.request
 import restarauntURL as restURL
+from APIcalls import GOOGLE_API_KEY
 
-GOOGLE_API_KEY = 'AIzaSyCSZkLStjQk7d1TPs7X7uwGj-yLRyjL2zA'
 BASE_URL_PHOTOS = 'https://maps.googleapis.com/maps/api/place/photo?'
 
 def buildPhotoURL(photoReference: str, maxHeight: int):

@@ -7,6 +7,12 @@
     $('select').formSelect();
     });
     </script>
+        
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="static/materialize.js"></script>
+    <script src="static/init.js"></script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FOODR</title>
@@ -25,101 +31,132 @@
       media="screen,projection"
     />
     <link
-      href="static/style.css"
+      href="static/css/style.css"
       type="text/css"
       rel="stylesheet"
       media="screen,projection"
     />
   </head>
   <body>
-    <nav class="white" role="navigation">
+    <nav class="blue-grey lighten-3" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">FOODR</a>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
+        <a id="logo-container" href="/" class="brand-logo"><img src="static/logo-wo-text.png" height="60" widith="60"></a>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
       </div>
     </nav>
+    
+    <ul class="sidenav" id="nav-mobile">
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
 
-    <div id="index-banner" class="parallax-container">
-      <div class="section no-pad-bot">
+    <div id="index-banner" class="parallax-container valign-wrapper z-depth-5">
+      <div class="section no-pad-bot ">
         <div class="container">
-          <br /><br />
-          <h1 class="header center grey-text text-lighten-3">
-            QUICK SELECT
+
+          <h1 class="header center white-text light">
+            FOODR
           </h1>
           <div class="row center">
-            <h5 class="header col s12 light">
-              A responsive set of options for some quick recommendations
+            <h5 class="header white-text col s12 light">
+              A machine learning way of picking where to eat
             </h5>
           </div>
-          <br /><br />
+          <br />
         </div>
       </div>
       <div class="parallax">
-        <img src="static/oranges.jpg" alt="Oranges" />
+        <img src="static/index-banner.jpg" alt="background showing a plate of pancakes and coffee" />
+      </div>
+    </div>
+    
+
+    <div class="row">
+      <div class="col l2"></div>
+      <div class="col s8">
+        <h1 class = "center">Explanation</h1>
+        <div class="row center">
+
+          <div class="col s12">
+            <div class="card-panel">
+              <span class="black-text">The Foodr development team has had individual trouble in picking food spots 
+                to eat during any given time of the day. There's always a "why don't we eat at _____", 
+                and a second thought of "Nah, I don't feel like eating there". This web app however, helps 
+                with the issue using machine learning. 
+                Foodr recommends food places for users either through one of our 3 quick search buttons, 
+                or through a machine learning algorithm that recommends you food based on your mood, time of day, and other factors. Every 
+                time one "thumbs up" a restaurant to learn more about it, a decision tree classifier makes a better prediction 
+                for a restaurant the user may like
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col l2"></div>
+    </div>
+    <div class="row center">
+      <a class="waves-effect waves-light btn-large" href= "/dashboard">START</a>
+    </div>
+
+    <div class="row z-depth-5">
+      <div class="col s6 no-padding">
+        <div class="parallax-container valign-wrapper">
+          <div class="section no-pad-bot">
+            <div class="container">
+              <div class="row center ">
+                <h2 class="white-text header col s12 light">
+                  Machine Learning Option
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="parallax">
+            <img src="static/ML.jpg" alt="array of colors showing a wave" />
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+        
+        <div class = "row center">
+            <img id="diagram-homepage" src="static/ML features.png">
+        </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="section">
-        <!--   Icon Section   -->
-        <div class="row">
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <a href="/quick">
-                <h2 class="center green-text">
-                  <i class="material-icons">flash_on</i>
-                </h2>
-              
-              <h5 class="center">Cheap eats and munchies</h5>
+    <!-- <img src="static/quick options.png" alt="Unsplashed background img 3" /> -->
 
-              <p class="light">
-                <center>For those looking for quick eats</center>
-              </p>
-              </a>
+    <div class="row z-depth-5">
+      <div class="col s6">
+        <div class = "row center" style="margin-bottom: 0px;">
+          <img src="static/quick options.png" id="diagram-homepage" alt="Unsplashed background img 3" />
+        </div>
+      </div>
+      <div class="col s6 no-padding">
+        <div class="parallax-container valign-wrapper">
+          <div class="section no-pad-bot">
+            <div class="container">
+              <div class="row center">
+                <h2 class="white-text header col s12 light">
+                  Quick Options
+                </h2>
+              </div>
             </div>
           </div>
-
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <a href="/caffeine">
-                <h2 class="center black-text">
-                  <i class="material-icons">group</i>
-                </h2>
-              </a>
-              <h5 class="center">Caffeine pick-me-up</h5>
-              <center>For those that need a caffeine boost and have cafe recommendations</center>
-              <p class="light"></p>
-              </a>
-            </div>
-          </div>
-
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <a href="/surprise">
-                <h2 class="center orange-text">
-                  <i class="material-icons">settings</i>
-                </h2>
-              <h5 class="center">Surprise me</h5>
-
-              <p class="light">
-                <center>For the mood when you want to see what else is out there.</center>
-              </p>
-              </a>
-            </div>
+          <div class="parallax">
+            <img src="static/clock.jpg" alt="Unsplashed background img 3" />
           </div>
         </div>
       </div>
     </div>
 
-     <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
+
+    <div class="parallax-container valign-wrapper z-depth-4" id="result">
+      <div class="section no-pad-bot">
         <div class="container">
           <div class="row center">
-            <h2 class="header col s12 light">
-              Price and mood filter
-            </h2>
+            <img src="static/result - title.jpg" id="result-box">
           </div>
         </div>
       </div>
@@ -128,76 +165,23 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="section">
-        <div class="row">
-          <div class="col center s12 m6 l3">
-          </div>
-          <div class="col center s12 m6 l3">
-            <form action="/details_given" method="post">
-                <p>
-                  <label>
-                    <input name="price" type="radio" id="1" value="1" required/>
-                    <span class = "green-text text-darken-3">$</span>
-                  </label>
-                </p>
-                <p>
-                  <label>
-                    <input name="price" type="radio" id="2"value="2" checked/>
-                    <span class = "green-text text-darken-3">$$</span>
-                    
-                  </label>
-                </p>
-            </p>
-          </div>
-          <div class="col center s12 m6 l3">
-                  <p>
-                    <label>
-                      <input name="price" type="radio" id="3" value="3"/>
-                      <span class = "green-text text-darken-3">$$$</span>
-                    </label>
-                  </p>
-                  <p>
-                    <label>
-                      <input name="price" type="radio" id="4" value="4"/>
-                      <span class = "green-text text-darken-3">$$$$</span>
-                    </label>
-                  </p>
-              </p>
-            </div>
-            <div class="col center s12 m6 l3">
-          </div>
-        </div>
-      </div>
+    <br />
+    <br />
+
+    <div class="row center">
+      <a class="waves-effect waves-light btn-large" href= "/dashboard">START</a>
     </div>
-          <div class="row">
-            <div class="col s12 m4">
-            </div>
-            <div class="input-field col s12 m2">
-             <center> 
-               <button class="btn-floating btn-large waves-effect waves-light yellow darken-1 black-text" type="submit" value="happy" name="action">
-                 <i class="far fa-grin-beam"></i>
-               </button>
-              </center>
-            </div>
-            <div class="input-field col s12 m2">
-            <center> 
-              <button class="btn-floating btn-large waves-effect waves-light blue" type="submit" value="sad" name="action">
-                <i class="far fa-frown-open"></i>
-              </button> 
-            </center>
-            </div>
-            <div class="col s12 m4">
-            </div>
-          </div>
-          </form>
+
+
+
+
+
+    <!-- <footer class="page-footer"> -->
+      <div class="footer-copyright blue-grey lighten-3">
+        <div class="container">
+          Copyright © 2020  Text
         </div>
       </div>
-
-
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="static/materialize.js"></script>
-    <script src="static/init.js"></script>
+    <!-- </footer> -->
   </body>
 </html>

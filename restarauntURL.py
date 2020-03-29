@@ -2,8 +2,8 @@ import APIcalls as api
 import json
 import urllib.parse
 import urllib.request
+from APIcalls import GOOGLE_API_KEY
 
-GOOGLE_API_KEY = 'AIzaSyCSZkLStjQk7d1TPs7X7uwGj-yLRyjL2zA'
 BASE_URL_REVIEWS = 'https://maps.googleapis.com/maps/api/place/details/json?'
 #placeid=ChIJx2CibP8f3YARcQbnMMHF4g4&fields=name,rating,review&key=
 
