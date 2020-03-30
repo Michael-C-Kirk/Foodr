@@ -2,7 +2,7 @@
 
 Foodr recommends food places for users either through one of our 3 quick search buttons, or through a machine learning algorithm that recommends you food based on your mood, time of day, and other factors. Every time one "thumbs up" a restaurant to learn more about it, a decision tree classifier makes a better prediction for a restaurant the user may like.
 
-![Website clicking through options of food recommendations](https://imgur.com/dASeLb7.gif)
+![Website clicking through options of food recommendations](https://imgur.com/ZXpIC0w.gif)
 
 
 ## Getting Started
