@@ -1,0 +1,98 @@
+American (New) (newamerican)
+American (Traditional) (tradamerican)
+	Barbeque (bbq)
+	Breakfast & Brunch (breakfast_brunch)
+	Pancakes (pancakes)
+	Soul Food (soulfood)
+	Burgers (burgers)
+	Cheesesteaks (cheesesteaks)
+	Chicken Wings (chicken_wings)
+	Diners (diners)
+	Southern (southern)
+	Steakhouses (steak)
+	Waffles (waffles)
+	Wraps (wraps)
+
+
+
+
+British (british)
+	Fish & Chips (fishnchips)
+
+Australian (australian)
+Cafes (cafes)
+	Themed Cafes (themedcafes)
+	Cafeteria (cafeteria)
+	Creperies (creperies)
+
+
+Asian
+	Chinese
+	Cantonese (cantonese)
+	Dim Sum (dimsum)
+	Shanghainese (shanghainese)
+	Szechuan (szechuan)
+	Filipino (filipino)
+	Asian Fusion (asianfusion)
+	Hot Pot (hotpot)
+	Japanese (japanese)
+	Conveyor Belt Sushi (conveyorsushi)
+	Izakaya (izakaya)
+	Japanese Curry (japacurry)
+	Ramen (ramen)
+	Korean (korean)
+	Malaysian (malaysian)
+	Pan Asian (panasian)
+	Singaporean (singaporean)
+	Sushi Bars (sushi)
+	Taiwanese (taiwanese)
+	Thai (thai)
+	Vietnamese (vietnamese)
+
+
+
+
+
+Comfort Food (comfortfood)
+	Food Court (food_court)
+	Food Stands (foodstands)
+	Hot Dogs (hotdog)
+	Noodles (noodles)
+
+
+Pizza (pizza)
+
+Dinner Theater (dinnertheater)
+Fast Food (hotdogs)
+
+
+Fondue (fondue)
+French (french)
+
+Gluten-Free (gluten_free)
+Greek (greek)
+Halal (halal)
+
+Indian (indpak)
+	Kebab (kebab)
+
+Mediterranean (mediterranean)
+	Falafel (falafel)
+	Middle Eastern (mideastern)
+	Egyptian (egyptian)
+	Lebanese (lebanese)
+
+Mexican (mexican)
+	Tacos (tacos)
+	New Mexican Cuisine (newmexican)
+	Nicaraguan (nicaraguan)
+
+Russian (russian)
+
+Salad (salad)
+Sandwiches (sandwiches)
+Seafood (seafood)
+Soup (soup)
+
+Vegan (vegan)
+Vegetarian (vegetarian)

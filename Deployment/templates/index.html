@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+    $('select').formSelect();
+    });
+    </script>
+        
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="static/materialize.js"></script>
+    <script src="static/init.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOODR</title>
+
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="static/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="static/css/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+  </head>
+  <body>
+    <nav class="blue-grey lighten-3" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo"><img src="static/logo-wo-text.png" height="60" widith="60"></a>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <ul class="sidenav" id="nav-mobile">
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+
+    <div id="index-banner" class="parallax-container valign-wrapper z-depth-5">
+      <div class="section no-pad-bot ">
+        <div class="container">
+
+          <h1 class="header center white-text light">
+            FOODR
+          </h1>
+          <div class="row center">
+            <h5 class="header white-text col s12 light">
+              A machine learning way of picking where to eat
+            </h5>
+          </div>
+          <br />
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="static/index-banner.jpg" alt="background showing a plate of pancakes and coffee" />
+      </div>
+    </div>
+    
+
+    <div class="row">
+      <div class="col l2"></div>
+      <div class="col s8">
+        <h1 class = "center">Explanation</h1>
+        <div class="row center">
+
+          <div class="col s12">
+            <div class="card-panel">
+              <span class="black-text">The Foodr development team has had individual trouble in picking food spots 
+                to eat during any given time of the day. There's always a "why don't we eat at _____", 
+                and a second thought of "Nah, I don't feel like eating there". This web app however, helps 
+                with the issue using machine learning. 
+                Foodr recommends food places for users either through one of our 3 quick search buttons, 
+                or through a machine learning algorithm that recommends you food based on your mood, time of day, and other factors. Every 
+                time one "thumbs up" a restaurant to learn more about it, a decision tree classifier makes a better prediction 
+                for a restaurant the user may like
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col l2"></div>
+    </div>
+    <div class="row center">
+      <a class="waves-effect waves-light btn-large" href= "/dashboard">START</a>
+    </div>
+
+    <div class="row z-depth-5">
+      <div class="col s6 no-padding">
+        <div class="parallax-container valign-wrapper">
+          <div class="section no-pad-bot">
+            <div class="container">
+              <div class="row center ">
+                <h2 class="white-text header col s12 light">
+                  Machine Learning Option
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="parallax">
+            <img src="static/ML.jpg" alt="array of colors showing a wave" />
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+        
+        <div class = "row center">
+            <img id="diagram-homepage" src="static/ML features.png">
+        </div>
+      </div>
+    </div>
+
+    <!-- <img src="static/quick options.png" alt="Unsplashed background img 3" /> -->
+
+    <div class="row z-depth-5">
+      <div class="col s6">
+        <div class = "row center" style="margin-bottom: 0px;">
+          <img src="static/quick options.png" id="diagram-homepage" alt="Unsplashed background img 3" />
+        </div>
+      </div>
+      <div class="col s6 no-padding">
+        <div class="parallax-container valign-wrapper">
+          <div class="section no-pad-bot">
+            <div class="container">
+              <div class="row center">
+                <h2 class="white-text header col s12 light">
+                  Quick Options
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="parallax">
+            <img src="static/clock.jpg" alt="Unsplashed background img 3" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper z-depth-4" id="result">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <img src="static/result - title.jpg" id="result-box">
+          </div>
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="static/atmosphere.jpg" alt="Unsplashed background img 3" />
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row center">
+      <a class="waves-effect waves-light btn-large" href= "/dashboard">START</a>
+    </div>
+
+
+
+
+
+    <!-- <footer class="page-footer"> -->
+      <div class="footer-copyright blue-grey lighten-3">
+        <div class="container">
+          Copyright © 2020  Text
+        </div>
+      </div>
+    <!-- </footer> -->
+  </body>
+</html>
